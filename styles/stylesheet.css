@@ -3,7 +3,8 @@ html {
   font-size: 10px;
   /* Replace PLACEHOLDER with the font-family property value you got from Google Fonts */
   font-family: "Open Sans", sans-serif;
-  background-color: #dad121;
+  /*background-color: #dad121;*/
+  background-image: url("../assets/pics/notlikeus.jpg");
 }
 
 body {

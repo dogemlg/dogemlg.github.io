@@ -1,15 +1,18 @@
 function setUserName() {
   const myName = prompt("Please enter your name!");
-  if (!myName) {
-    setUserName();
-  } else {
-    localStorage.setItem("name", myName);
-    mytext.textContent = `Hello ${myName}, my fellow mustard superfan!`;
+  if (myName === null) {
+    return 1;
   }
+  if (myName.trim() === "") {
+    return setUserName();
+  }
+  localStorage.setItem("name", myName);
+  mytext.textContent = `Hello ${myName}, my fellow mustard superfan!`;
+  return 0;
 }
 
 let mybutton = document.querySelector("button");
-let mytext = document.querySelector("p");
+let mytext = document.querySelector(".user");
 
 if (!localStorage.getItem("name")) {
   setUserName();
@@ -35,5 +38,8 @@ myimg.addEventListener("click", () => {
   }
 });
 mybutton.addEventListener("click", () => {
-  setUserName();
+  let namecheck = setUserName();
+  if (!localStorage.getItem("name") && namecheck === 1) {
+    mytext.textContent = `Dont wanna share your name huh? Hope you arent a diddy ahh blud!`;
+  }
 });
